@@ -31,7 +31,7 @@ dev:
 	@trap "pkill -9 -f -l 'netlify|livereload|/bin/sh -c livereload'" INT EXIT && \
 		livereload --wait 1 --host 0.0.0.0 -t public & \
 		netlify dev --offline & \
-		rg --files --type-add 'plim:*.plim' -t plim -t stylus | entr -s 'make all'
+		rg --files --type-add 'plim:*.plim' -t plim -t stylus | entr ${ENTR_ARGS} -s 'make all'
 
 clean:
 	rm public/*.html public/static/css/*

@@ -1,0 +1,13 @@
+{
+    http_port 2021
+}
+
+http://localhost {
+    handle_path /api/* {
+        rewrite * {path}
+        reverse_proxy localhost:8000
+    }
+
+    root * nops-rules-fe/public/
+    file_server
+}

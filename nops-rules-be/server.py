@@ -40,9 +40,8 @@ def restructure(body):
 
 
 @hug.get()
-def rules():
+def rules(hug_cors='http://127.0.0.1:3000'):
     return RULE_MAPPINGS
-
 
 @hug.get()
 def workloads():

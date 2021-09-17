@@ -1,7 +1,12 @@
 - namespace name="defs" defs.plim
 ---!
     import addict
+    import os
+
     WIDTHS = [8120, 5260, 3840, 2560, 1920, 1280, 1024, 768, 640, 320]
+
+
+    API_PREFIX = os.getenv("API_PREFIX") or "/api"
 
     def srcset(image, ext, maxwidth=8120, factor=1):
         return ','.join(f'/static/img/{image}/{width}_{image}.{ext} {int(round(width * factor))}w' for width in WIDTHS if width <= maxwidth)
@@ -136,3 +141,11 @@ html lang="en"
                                     th.${CLS.th} scope="col" Service
                             tbody.bg-white.divide-y.divide-gray-200
                                 -call data=${DATA.gcp.gcp_service.some_gcp_rule} self:row
+        -coffee
+            loadRules = () ->
+              response = await fetch '${API_PREFIX}/'
+              rules = await response.json()
+
+              console.log(rules)
+
+            loadRules()
