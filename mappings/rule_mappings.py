@@ -8,6 +8,7 @@ RULE_MAPPINGS = {
                 "description": "Some description",
                 "service": "ec2",
                 "pillar": "Cost",
+                "compliance": ["FTR", "WAFR"],
                 "tags": [
                     "AWS",
                     "FTR",
@@ -21,6 +22,7 @@ RULE_MAPPINGS = {
                 "description": "Consider leveraging autoscaling for high availability and lower cost",
                 "service": "ec2",
                 "pillar": "Reliability",
+                "compliance": ["FTR", "WAFR"],
                 "tags": [
                     "AWS",
                     "FTR",
@@ -38,6 +40,7 @@ RULE_MAPPINGS = {
                                "automatically recover from infrastructure failures.",
                 "service": "rds",
                 "pillar": "Reliability",
+                "compliance": ["FTR", "HIPAA"],
                 "tags": [
                     "AWS",
                     "FTR",
@@ -55,6 +58,7 @@ RULE_MAPPINGS = {
                 "description": "gcp description",
                 "service": "gcp_service",
                 "pillar": "Reliability",
+                "compliance": ["PCI"],
                 "tags": [
                     "GCP"
                 ]

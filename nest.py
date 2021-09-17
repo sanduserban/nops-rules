@@ -54,24 +54,24 @@ def rebuild_json(data, arguments):
     return key_dict
 
 
-if __name__ == '__main__':
-    output = None
-    parser = argparse.ArgumentParser(description='JSON Restructurer')
-    parser.add_argument('arguments', nargs='*')
-
-    args = parser.parse_args().arguments
-    file_content = sys.stdin.read()
-    try:
-        data = json.loads(file_content)
-        validate_args(data[0].keys(), args)
-        output = rebuild_json(data, args)
-    except MissingArguments:
-        sys.stderr.write('Please provide at least one argument (key).')
-    except InvalidArgument:
-        sys.stderr.write('Invalid arguments. Arguments have to match JSON keys.')
-    except TooManyArguments:
-        sys.stderr.write('More arguments than JSON keys provided.')
-    except AlreadyPassedArgument:
-        sys.stderr.write('Duplicate arguments provided.')
-
-    print(json.dumps(output), file=sys.stdout)
+# if __name__ == '__main__':
+#     output = None
+#     parser = argparse.ArgumentParser(description='JSON Restructurer')
+#     parser.add_argument('arguments', nargs='*')
+#
+#     args = parser.parse_args().arguments
+#     file_content = sys.stdin.read()
+#     try:
+#         data = json.loads(file_content)
+#         validate_args(data[0].keys(), args)
+#         output = rebuild_json(data, args)
+#     except MissingArguments:
+#         sys.stderr.write('Please provide at least one argument (key).')
+#     except InvalidArgument:
+#         sys.stderr.write('Invalid arguments. Arguments have to match JSON keys.')
+#     except TooManyArguments:
+#         sys.stderr.write('More arguments than JSON keys provided.')
+#     except AlreadyPassedArgument:
+#         sys.stderr.write('Duplicate arguments provided.')
+#
+#     print(json.dumps(output), file=sys.stdout)
