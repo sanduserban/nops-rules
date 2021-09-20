@@ -40,7 +40,7 @@ def restructure(body):
 
 
 @hug.get()
-def rules(hug_cors='http://127.0.0.1:3000'):
+def rules():
     return RULE_MAPPINGS
 
 @hug.get()

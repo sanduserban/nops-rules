@@ -10,7 +10,7 @@ RULE_MAPPINGS = {
                 "pillar": "Cost",
                 "compliance": ["FTR", "WAFR"],
                 "tags": [
-                    "AWS",
+                    "AWDWDA",
                     "FTR",
                     "WAFR"
                 ]
